@@ -41,6 +41,8 @@ public class Lab3Part1a {
         });
         panel.add(button, c);
 
+        JLabel desc = new JLabel();
+
         frame.add(panel);
         frame.setVisible(true);
     }
