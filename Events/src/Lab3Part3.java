@@ -41,14 +41,16 @@ public class Lab3Part3 {
         c.gridy = 0;
         panel.add(images, c);
 
-        JLabel imgLabel = new JLabel("An image will appear here");
-        c.gridx = 1;
+        JLabel imgLabel = new JLabel("An image will appear here", SwingConstants.CENTER);
+        c.gridx = 0;
         c.gridy = 1;
+        c.gridwidth = 2;
         panel.add(imgLabel, c);
 
         JLabel desc = new JLabel("Description will appear here", SwingConstants.CENTER);
         c.gridx = 0;
-        c.gridy = 1;
+        c.gridy = 2;
+        c.gridwidth = 2;
         desc.setOpaque(true);
         panel.add(desc, c);
 
