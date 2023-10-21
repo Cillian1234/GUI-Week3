@@ -30,6 +30,7 @@ public class Lab3Part4 {
 
         JLabel balance = new JLabel("Your balance is: €0.00", SwingConstants.CENTER);
         balance.setFont(font);
+        balance.setBorder(blackline);
         c.gridx = 0;
         c.gridy = 0;
         c.gridwidth = 3;
