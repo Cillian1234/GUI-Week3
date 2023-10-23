@@ -28,7 +28,7 @@ public class Lab3Part3 {
 
         String[] colourNames = {"Red", "Green", "Blue"};
         Color[] coloursArray = {Color.RED, Color.GREEN, Color.BLUE};
-        String[] imageNames = {"Mike", "Cat", "Dog"};
+        String[] imageNames = {"Mike", "Cat", "Dog", "Dog1", "Dog2"};
         ImageIcon[] imagesArray = getImages();
 
         JComboBox colours = new JComboBox(colourNames);
@@ -92,7 +92,17 @@ public class Lab3Part3 {
         image = bufferedImage.getScaledInstance(150,150, Image.SCALE_DEFAULT);
         ImageIcon dog = new ImageIcon(image);
 
-        ImageIcon[] imagesArray = {mike, dog, cat};
+        try {bufferedImage = ImageIO.read(new File("images/cat.png"));}
+        catch (IOException e) {throw new RuntimeException(e);}
+        image = bufferedImage.getScaledInstance(150,150, Image.SCALE_DEFAULT);
+        ImageIcon dog1 = new ImageIcon(image);
+
+        try {bufferedImage = ImageIO.read(new File("images/cat.png"));}
+        catch (IOException e) {throw new RuntimeException(e);}
+        image = bufferedImage.getScaledInstance(150,150, Image.SCALE_DEFAULT);
+        ImageIcon dog2 = new ImageIcon(image);
+
+        ImageIcon[] imagesArray = {mike, dog, cat, dog1, dog2};
 
         return imagesArray;
 
