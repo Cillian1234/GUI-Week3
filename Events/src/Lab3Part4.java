@@ -7,6 +7,8 @@ public class Lab3Part4 extends Frame {
     public static void main(String[] args) {
 
         Frame frame = new Frame();
+        frame.setTitle("Top Up");
+
         final double[] bal = {0};
 
         Border blackline = BorderFactory.createLineBorder(Color.black);
@@ -18,32 +20,40 @@ public class Lab3Part4 extends Frame {
         balance.setBorder(blackline);
         balance.setBackground(Color.PINK);
         balance.setOpaque(true);
+        balance.setVerticalAlignment(SwingConstants.NORTH);
         c.gridx = 0;
         c.gridy = 0;
         c.gridwidth = 3;
-        panel.add(balance, c);
+        frame.panel.add(balance, c);
+
+        c.ipadx = 10;
+        c.ipady = 10;
+        c.gridwidth = 1;
+        c.anchor = GridBagConstraints.CENTER;
 
         JButton topUp = new JButton("Top up by €20");
         topUp.setFont(font);
         topUp.setBackground(Color.PINK);
+        topUp.setBorder(blackline);
         c.gridx = 0;
         c.gridy = 1;
-        c.gridwidth = 1;
-        panel.add(topUp, c);
+        frame.panel.add(topUp, c);
 
         JButton makeText = new JButton("Text");
         makeText.setFont(font);
         makeText.setBackground(Color.PINK);
+        makeText.setBorder(blackline);
         c.gridx = 1;
         c.gridy = 1;
-        panel.add(makeText, c);
+        frame.panel.add(makeText, c);
 
         JButton makeCall = new JButton("Call");
         makeCall.setFont(font);
         makeCall.setBackground(Color.PINK);
+        makeCall.setBorder(blackline);
         c.gridx = 2;
         c.gridy = 1;
-        panel.add(makeCall, c);
+        frame.panel.add(makeCall, c);
 
         topUp.addActionListener(new ActionListener() {
             @Override

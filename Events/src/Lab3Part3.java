@@ -7,24 +7,12 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Lab3Part3 {
+public class Lab3Part3 extends Frame {
+
     public static void main(String[] args) {
 
-        JFrame frame = new JFrame();
-
-        // config frame
-        frame.setLocation(200, 100);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setTitle("Translate");
-        frame.setSize(500, 500);
-        frame.setResizable(false);
-
-        JPanel panel = new JPanel();
-
-        panel.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints(); // create constraints variable for gridbag layout
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.insets = new Insets(25,25,25,25);
+        Frame frame = new Frame();
+        frame.setTitle("ComboBoxes");
 
         String[] colourNames = {"Red", "Green", "Blue"};
         Color[] coloursArray = {Color.RED, Color.GREEN, Color.BLUE};
@@ -34,25 +22,27 @@ public class Lab3Part3 {
         JComboBox colours = new JComboBox(colourNames);
         c.gridx = 0;
         c.gridy = 0;
-        panel.add(colours, c);
+        frame.panel.add(colours, c);
 
         JComboBox images = new JComboBox(imageNames);
         c.gridx = 1;
         c.gridy = 0;
-        panel.add(images, c);
+        frame.panel.add(images, c);
 
         JLabel imgLabel = new JLabel("An image will appear here", SwingConstants.CENTER);
         c.gridx = 0;
         c.gridy = 1;
+        c.anchor = GridBagConstraints.CENTER;
         c.gridwidth = 2;
-        panel.add(imgLabel, c);
+        frame.panel.add(imgLabel, c);
 
         JLabel desc = new JLabel("Description will appear here", SwingConstants.CENTER);
         c.gridx = 0;
         c.gridy = 2;
+        c.anchor = GridBagConstraints.SOUTH;
         c.gridwidth = 2;
         desc.setOpaque(true);
-        panel.add(desc, c);
+        frame.panel.add(desc, c);
 
         images.addItemListener(new ItemListener() {
             @Override
@@ -69,7 +59,6 @@ public class Lab3Part3 {
             }
         });
 
-        frame.add(panel);
         frame.setVisible(true);
     }
 

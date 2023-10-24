@@ -6,59 +6,44 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Lab3Part2 {
+public class Lab3Part2 extends Frame {
     public static void main(String[] args) {
 
-        JFrame frame = new JFrame();
-
-        // config frame
-        frame.setLocation(200, 100);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setTitle("Translate");
-        frame.setSize(500, 1000);
-        frame.setResizable(false);
-
-        JPanel panel = new JPanel();
-
-        panel.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints(); // create constraints variable for gridbag layout
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.insets = new Insets(25,25,25,25);
+        Frame frame = new Frame();
+        frame.setTitle("Images");
 
         ImageIcon[] animalsArray = getImages();
         String[] descriptions = {"Mike", "Cat", "Dog"};
 
-        JList animals = new JList(animalsArray);
-        c.gridx = 1;
+        JList animals = new JList(descriptions);
+        c.anchor = GridBagConstraints.NORTH;
+        c.gridx = 0;
         c.gridy = 1;
-        c.gridwidth = 2;
-        panel.add(animals, c);
+        frame.panel.add(animals, c);
 
-        JLabel label = new JLabel("An image will appear here");
-        c.gridx = 1;
+        JLabel imgLabel = new JLabel("An image will appear here");
+        c.gridx = 0;
         c.gridy = 2;
-        c.gridwidth = 1;
-        panel.add(label, c);
+        frame.panel.add(imgLabel, c);
 
         JLabel desc = new JLabel("Description will appear here", SwingConstants.CENTER);
-        c.gridx = 1;
+        c.gridx = 0;
         c.gridy = 3;
-        panel.add(desc, c);
-
-        frame.add(panel);
-        frame.setVisible(true);
+        frame.panel.add(desc, c);
 
         MouseListener mouseListener = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int selectedItem = animals.getSelectedIndex();
-                label.setText(null);
-                label.setIcon(animalsArray[selectedItem]);
+                imgLabel.setText(null);
+                imgLabel.setIcon(animalsArray[selectedItem]);
 
                 desc.setText(descriptions[selectedItem]);
             }
         };
+
         animals.addMouseListener(mouseListener);
+        frame.setVisible(true);
     }
 
     public static ImageIcon[] getImages() {
@@ -83,7 +68,6 @@ public class Lab3Part2 {
         ImageIcon[] animalsArray = {mike, dog, cat};
 
         return animalsArray;
-
     }
 
 
