@@ -21,7 +21,7 @@ public class Lab3Part2 extends Frame {
         c.gridy = 1;
         frame.panel.add(animals, c);
 
-        JLabel imgLabel = new JLabel("An image will appear here");
+        JLabel imgLabel = new JLabel("An image will appear here", SwingConstants.CENTER);
         c.gridx = 0;
         c.gridy = 2;
         frame.panel.add(imgLabel, c);
