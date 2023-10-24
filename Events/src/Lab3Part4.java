@@ -1,28 +1,13 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.beans.PropertyChangeListener;
+import java.awt.event.*;
 
-public class Lab3Part4 {
+public class Lab3Part4 extends Frame {
     public static void main(String[] args) {
 
+        Frame frame = new Frame();
         final double[] bal = {0};
-
-        JFrame frame = new JFrame();
-        // config frame
-        frame.setLocation(200, 100);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setTitle("Top Up");
-        frame.setSize(500, 500);
-        frame.setResizable(false);
-
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints(); // create constraints variable for gridbag layout
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.insets = new Insets(25,25,25,25);
 
         Border blackline = BorderFactory.createLineBorder(Color.black);
 
@@ -31,6 +16,8 @@ public class Lab3Part4 {
         JLabel balance = new JLabel("Your balance is: €0.00", SwingConstants.CENTER);
         balance.setFont(font);
         balance.setBorder(blackline);
+        balance.setBackground(Color.PINK);
+        balance.setOpaque(true);
         c.gridx = 0;
         c.gridy = 0;
         c.gridwidth = 3;
@@ -38,6 +25,7 @@ public class Lab3Part4 {
 
         JButton topUp = new JButton("Top up by €20");
         topUp.setFont(font);
+        topUp.setBackground(Color.PINK);
         c.gridx = 0;
         c.gridy = 1;
         c.gridwidth = 1;
@@ -45,12 +33,14 @@ public class Lab3Part4 {
 
         JButton makeText = new JButton("Text");
         makeText.setFont(font);
+        makeText.setBackground(Color.PINK);
         c.gridx = 1;
         c.gridy = 1;
         panel.add(makeText, c);
 
         JButton makeCall = new JButton("Call");
         makeCall.setFont(font);
+        makeCall.setBackground(Color.PINK);
         c.gridx = 2;
         c.gridy = 1;
         panel.add(makeCall, c);
@@ -83,7 +73,6 @@ public class Lab3Part4 {
             }
         });
 
-        frame.add(panel);
         frame.setVisible(true);
     }
 }
