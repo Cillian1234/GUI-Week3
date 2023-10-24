@@ -1,42 +1,41 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Lab3Part3 extends Frame {
+public class Lab3Part3 extends Frame implements ActionListener {
+    static String[] colourNames = {"Red", "Green", "Blue"};
+    static Color[] coloursArray = {Color.RED, Color.GREEN, Color.BLUE};
+    static String[] imageNames = {"Mike", "Cat", "Dog", "Dog1", "Dog2"};
+    static ImageIcon[] imagesArray = getImages();
+    static JComboBox colours = new JComboBox(colourNames);
+    static JComboBox images = new JComboBox(imageNames);
+    static JLabel imgLabel = new JLabel("An image will appear here", SwingConstants.CENTER);
+    static JLabel desc = new JLabel("Description will appear here", SwingConstants.CENTER);
 
-    public static void main(String[] args) {
+    public Lab3Part3() {
 
         Frame frame = new Frame();
         frame.setTitle("ComboBoxes");
 
-        String[] colourNames = {"Red", "Green", "Blue"};
-        Color[] coloursArray = {Color.RED, Color.GREEN, Color.BLUE};
-        String[] imageNames = {"Mike", "Cat", "Dog", "Dog1", "Dog2"};
-        ImageIcon[] imagesArray = getImages();
-
-        JComboBox colours = new JComboBox(colourNames);
         c.gridx = 0;
         c.gridy = 0;
         frame.panel.add(colours, c);
 
-        JComboBox images = new JComboBox(imageNames);
         c.gridx = 1;
         c.gridy = 0;
         frame.panel.add(images, c);
 
-        JLabel imgLabel = new JLabel("An image will appear here", SwingConstants.CENTER);
         c.gridx = 0;
         c.gridy = 1;
         c.anchor = GridBagConstraints.CENTER;
         c.gridwidth = 2;
         frame.panel.add(imgLabel, c);
 
-        JLabel desc = new JLabel("Description will appear here", SwingConstants.CENTER);
         c.gridx = 0;
         c.gridy = 2;
         c.anchor = GridBagConstraints.SOUTH;
@@ -44,22 +43,26 @@ public class Lab3Part3 extends Frame {
         desc.setOpaque(true);
         frame.panel.add(desc, c);
 
-        images.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                imgLabel.setIcon(imagesArray[images.getSelectedIndex()]);
-                imgLabel.setText(null);
-            }
-        });
-
-        colours.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                desc.setBackground(coloursArray[colours.getSelectedIndex()]);
-            }
-        });
+        images.addActionListener(this);
+        colours.addActionListener(this);
 
         frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        Lab3Part3 run = new Lab3Part3();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object source = e.getSource();
+
+        if (source == images) {
+            imgLabel.setIcon(imagesArray[images.getSelectedIndex()]);
+            imgLabel.setText(null);
+        } else if (source == colours) {
+            desc.setBackground(coloursArray[colours.getSelectedIndex()]);
+        }
     }
 
     public static ImageIcon[] getImages() {

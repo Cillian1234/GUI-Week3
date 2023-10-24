@@ -3,19 +3,25 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Lab3Part4 extends Frame {
-    public static void main(String[] args) {
+public class Lab3Part4 extends Frame implements ActionListener {
+    static JLabel balance = new JLabel("Your balance is: €0.00", SwingConstants.CENTER);
+    static JButton topUp = new JButton("Top up by €20");
+    static JButton makeText = new JButton("Text");
+    static JButton makeCall = new JButton("Call");
+    static double bal = 0;
 
+    public Lab3Part4() {
         Frame frame = new Frame();
         frame.setTitle("Top Up");
 
-        final double[] bal = {0};
+        topUp.addActionListener(this);
+        makeText.addActionListener(this);
+        makeCall.addActionListener(this);
 
         Border blackline = BorderFactory.createLineBorder(Color.black);
 
         Font font = new Font("Courier", Font.BOLD, 20);
 
-        JLabel balance = new JLabel("Your balance is: €0.00", SwingConstants.CENTER);
         balance.setFont(font);
         balance.setBorder(blackline);
         balance.setBackground(Color.PINK);
@@ -31,7 +37,6 @@ public class Lab3Part4 extends Frame {
         c.gridwidth = 1;
         c.anchor = GridBagConstraints.CENTER;
 
-        JButton topUp = new JButton("Top up by €20");
         topUp.setFont(font);
         topUp.setBackground(Color.PINK);
         topUp.setBorder(blackline);
@@ -39,7 +44,6 @@ public class Lab3Part4 extends Frame {
         c.gridy = 1;
         frame.panel.add(topUp, c);
 
-        JButton makeText = new JButton("Text");
         makeText.setFont(font);
         makeText.setBackground(Color.PINK);
         makeText.setBorder(blackline);
@@ -47,7 +51,6 @@ public class Lab3Part4 extends Frame {
         c.gridy = 1;
         frame.panel.add(makeText, c);
 
-        JButton makeCall = new JButton("Call");
         makeCall.setFont(font);
         makeCall.setBackground(Color.PINK);
         makeCall.setBorder(blackline);
@@ -55,34 +58,25 @@ public class Lab3Part4 extends Frame {
         c.gridy = 1;
         frame.panel.add(makeCall, c);
 
-        topUp.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                bal[0] = bal[0] + 20;
-                balance.setText("Your balance is: €"+bal[0]);
-            }
-        });
-
-        makeText.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if ((bal[0] - 0.25) >= 0) {
-                    bal[0] = bal[0] - 0.25;
-                    balance.setText("Your balance is: €" + bal[0]);
-                }
-            }
-        });
-
-        makeCall.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if ((bal[0] - 2) >= 0) {
-                    bal[0] = bal[0] - 2;
-                    balance.setText("Your balance is: €" + bal[0]);
-                }
-            }
-        });
-
         frame.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object source = e.getSource();
+
+        if (source == topUp) {
+            bal = bal + 20;
+            balance.setText("Your balance is: €" + bal);
+        } else if (source == makeText && (bal - 0.25) >= 0) {
+            bal = bal - 0.25;
+            balance.setText("Your balance is: €" + bal);
+        } else if (source == makeCall && (bal - 2) >= 0) {
+            bal = bal - 2;
+            balance.setText("Your balance is: €" + bal);
+        }
+    }
+    public static void main(String[] args) {
+        Lab3Part4 run = new Lab3Part4();
     }
 }
