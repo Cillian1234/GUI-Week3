@@ -15,33 +15,37 @@ public class Lab3Part3 extends Frame implements ActionListener {
     static JComboBox colours = new JComboBox(colourNames);
     static JComboBox images = new JComboBox(imageNames);
     static JLabel imgLabel = new JLabel("An image will appear here", SwingConstants.CENTER);
-    static JLabel desc = new JLabel("Description will appear here", SwingConstants.CENTER);
+    static JLabel descLabel = new JLabel("Description will appear here", SwingConstants.CENTER);
 
     public Lab3Part3() {
 
         Frame frame = new Frame();
         frame.setTitle("ComboBoxes");
 
-        c.gridx = 0;
-        c.gridy = 0;
-        frame.panel.add(colours, c);
+        // Config for colours ComboBox
+            c.gridx = 0;
+            c.gridy = 0;
+            frame.panel.add(colours, c);
 
-        c.gridx = 1;
-        c.gridy = 0;
-        frame.panel.add(images, c);
+        // Config for images ComboBox
+            c.gridx = 1;
+            c.gridy = 0;
+            frame.panel.add(images, c);
 
-        c.gridx = 0;
-        c.gridy = 1;
-        c.anchor = GridBagConstraints.CENTER;
-        c.gridwidth = 2;
-        frame.panel.add(imgLabel, c);
+        // Config for imgLabel
+            c.gridx = 0;
+            c.gridy = 1;
+            c.anchor = GridBagConstraints.CENTER;
+            c.gridwidth = 2;
+            frame.panel.add(imgLabel, c);
 
-        c.gridx = 0;
-        c.gridy = 2;
-        c.anchor = GridBagConstraints.SOUTH;
-        c.gridwidth = 2;
-        desc.setOpaque(true);
-        frame.panel.add(desc, c);
+        // Config for descLabel
+            c.gridx = 0;
+            c.gridy = 2;
+            c.anchor = GridBagConstraints.SOUTH;
+            c.gridwidth = 2;
+            descLabel.setOpaque(true);
+            frame.panel.add(descLabel, c);
 
         images.addActionListener(this);
         colours.addActionListener(this);
@@ -61,7 +65,7 @@ public class Lab3Part3 extends Frame implements ActionListener {
             imgLabel.setIcon(imagesArray[images.getSelectedIndex()]);
             imgLabel.setText(null);
         } else if (source == colours) {
-            desc.setBackground(coloursArray[colours.getSelectedIndex()]);
+            descLabel.setBackground(coloursArray[colours.getSelectedIndex()]);
         }
     }
 

@@ -12,16 +12,16 @@ public class Lab3Part1b extends Frame {
         JButton button;
 
         button = new JButton("My text will change when pushed");
-        c.fill = GridBagConstraints.BOTH;
-        c.gridx = 1;
-        c.gridy = 2;
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                button.setText("See? I told you!");
-            }
-        });
-        frame.panel.add(button, c);
+            c.fill = GridBagConstraints.BOTH;
+            c.gridx = 1;
+            c.gridy = 2;
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    button.setText("See? I told you!");
+                }
+            });
+            frame.panel.add(button, c);
 
         frame.setVisible(true);
     }

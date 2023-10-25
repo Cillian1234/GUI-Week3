@@ -22,41 +22,46 @@ public class Lab3Part4 extends Frame implements ActionListener {
 
         Font font = new Font("Courier", Font.BOLD, 20);
 
-        balance.setFont(font);
-        balance.setBorder(blackline);
-        balance.setBackground(Color.PINK);
-        balance.setOpaque(true);
-        balance.setVerticalAlignment(SwingConstants.NORTH);
-        c.gridx = 0;
-        c.gridy = 0;
-        c.gridwidth = 3;
-        frame.panel.add(balance, c);
+        // Config for balance Label
+            balance.setFont(font);
+            balance.setBorder(blackline);
+            balance.setBackground(Color.PINK);
+            balance.setOpaque(true);
+            balance.setVerticalAlignment(SwingConstants.NORTH);
+            c.gridx = 0;
+            c.gridy = 0;
+            c.gridwidth = 3;
+            frame.panel.add(balance, c);
 
-        c.ipadx = 10;
-        c.ipady = 10;
-        c.gridwidth = 1;
-        c.anchor = GridBagConstraints.CENTER;
+        // Universal config for everything else
+            c.ipadx = 10;
+            c.ipady = 10;
+            c.gridwidth = 1;
+            c.anchor = GridBagConstraints.CENTER;
 
-        topUp.setFont(font);
-        topUp.setBackground(Color.PINK);
-        topUp.setBorder(blackline);
-        c.gridx = 0;
-        c.gridy = 1;
-        frame.panel.add(topUp, c);
+        // Config for topUp Button
+            topUp.setFont(font);
+            topUp.setBackground(Color.PINK);
+            topUp.setBorder(blackline);
+            c.gridx = 0;
+            c.gridy = 1;
+            frame.panel.add(topUp, c);
 
-        makeText.setFont(font);
-        makeText.setBackground(Color.PINK);
-        makeText.setBorder(blackline);
-        c.gridx = 1;
-        c.gridy = 1;
-        frame.panel.add(makeText, c);
+        // Config for makeText Button
+            makeText.setFont(font);
+            makeText.setBackground(Color.PINK);
+            makeText.setBorder(blackline);
+            c.gridx = 1;
+            c.gridy = 1;
+            frame.panel.add(makeText, c);
 
-        makeCall.setFont(font);
-        makeCall.setBackground(Color.PINK);
-        makeCall.setBorder(blackline);
-        c.gridx = 2;
-        c.gridy = 1;
-        frame.panel.add(makeCall, c);
+        // Config for makeCall Button
+            makeCall.setFont(font);
+            makeCall.setBackground(Color.PINK);
+            makeCall.setBorder(blackline);
+            c.gridx = 2;
+            c.gridy = 1;
+            frame.panel.add(makeCall, c);
 
         frame.setVisible(true);
     }
@@ -65,13 +70,18 @@ public class Lab3Part4 extends Frame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
 
+        // If event came from topUp, increase balance
         if (source == topUp) {
             bal = bal + 20;
             balance.setText("Your balance is: €" + bal);
-        } else if (source == makeText && (bal - 0.25) >= 0) {
+        }
+        // If event came from makeText and balance after this text will be more than or equal to 0, reduce balance
+        else if (source == makeText && (bal - 0.25) >= 0) {
             bal = bal - 0.25;
             balance.setText("Your balance is: €" + bal);
-        } else if (source == makeCall && (bal - 2) >= 0) {
+        }
+        // If event came from makeCall and balance after this call will be more than or equal to 0, reduce balance
+        else if (source == makeCall && (bal - 2) >= 0) {
             bal = bal - 2;
             balance.setText("Your balance is: €" + bal);
         }
