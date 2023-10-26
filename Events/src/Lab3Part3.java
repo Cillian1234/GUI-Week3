@@ -19,25 +19,24 @@ public class Lab3Part3 extends Frame implements ActionListener {
 
     public Lab3Part3() {
 
-        Frame frame = new Frame();
-        frame.setTitle("ComboBoxes");
+
 
         // Config for colours ComboBox
             c.gridx = 0;
             c.gridy = 0;
-            frame.panel.add(colours, c);
+            panel.add(colours, c);
 
         // Config for images ComboBox
             c.gridx = 1;
             c.gridy = 0;
-            frame.panel.add(images, c);
+            panel.add(images, c);
 
         // Config for imgLabel
             c.gridx = 0;
             c.gridy = 1;
             c.anchor = GridBagConstraints.CENTER;
             c.gridwidth = 2;
-            frame.panel.add(imgLabel, c);
+            panel.add(imgLabel, c);
 
         // Config for descLabel
             c.gridx = 0;
@@ -45,12 +44,13 @@ public class Lab3Part3 extends Frame implements ActionListener {
             c.anchor = GridBagConstraints.SOUTH;
             c.gridwidth = 2;
             descLabel.setOpaque(true);
-            frame.panel.add(descLabel, c);
+            panel.add(descLabel, c);
 
         images.addActionListener(this);
         colours.addActionListener(this);
 
-        frame.setVisible(true);
+        setTitle("Combo boxes");
+        setVisible(true);
     }
 
     public static void main(String[] args) {

@@ -11,8 +11,6 @@ public class Lab3Part4 extends Frame implements ActionListener {
     static double bal = 0;
 
     public Lab3Part4() {
-        Frame frame = new Frame();
-        frame.setTitle("Top Up");
 
         topUp.addActionListener(this);
         makeText.addActionListener(this);
@@ -31,7 +29,7 @@ public class Lab3Part4 extends Frame implements ActionListener {
             c.gridx = 0;
             c.gridy = 0;
             c.gridwidth = 3;
-            frame.panel.add(balance, c);
+            panel.add(balance, c);
 
         // Universal config for everything else
             c.ipadx = 10;
@@ -45,7 +43,7 @@ public class Lab3Part4 extends Frame implements ActionListener {
             topUp.setBorder(blackline);
             c.gridx = 0;
             c.gridy = 1;
-            frame.panel.add(topUp, c);
+            panel.add(topUp, c);
 
         // Config for makeText Button
             makeText.setFont(font);
@@ -53,7 +51,7 @@ public class Lab3Part4 extends Frame implements ActionListener {
             makeText.setBorder(blackline);
             c.gridx = 1;
             c.gridy = 1;
-            frame.panel.add(makeText, c);
+            panel.add(makeText, c);
 
         // Config for makeCall Button
             makeCall.setFont(font);
@@ -61,9 +59,10 @@ public class Lab3Part4 extends Frame implements ActionListener {
             makeCall.setBorder(blackline);
             c.gridx = 2;
             c.gridy = 1;
-            frame.panel.add(makeCall, c);
+            panel.add(makeCall, c);
 
-        frame.setVisible(true);
+        setTitle("Top up");
+        setVisible(true);
     }
 
     @Override

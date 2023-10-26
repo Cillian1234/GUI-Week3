@@ -7,29 +7,25 @@ import java.io.File;
 import java.io.IOException;
 
 public class Lab3Part2 extends Frame {
-    public static void main(String[] args) {
-
-        Frame frame = new Frame();
-        frame.setTitle("Images");
-
+    Lab3Part2() {
         ImageIcon[] animalsArray = getImages();
         String[] descriptions = {"Mike", "Cat", "Dog"};
 
         JList animals = new JList(descriptions);
-            c.anchor = GridBagConstraints.NORTH;
-            c.gridx = 0;
-            c.gridy = 1;
-            frame.panel.add(animals, c);
+        c.anchor = GridBagConstraints.NORTH;
+        c.gridx = 0;
+        c.gridy = 1;
+        panel.add(animals, c);
 
         JLabel imgLabel = new JLabel("An image will appear here", SwingConstants.CENTER);
-            c.gridx = 0;
-            c.gridy = 2;
-            frame.panel.add(imgLabel, c);
+        c.gridx = 0;
+        c.gridy = 2;
+        panel.add(imgLabel, c);
 
         JLabel desc = new JLabel("Description will appear here", SwingConstants.CENTER);
-            c.gridx = 0;
-            c.gridy = 3;
-            frame.panel.add(desc, c);
+        c.gridx = 0;
+        c.gridy = 3;
+        panel.add(desc, c);
 
         MouseListener mouseListener = new MouseAdapter() {
             @Override
@@ -43,7 +39,12 @@ public class Lab3Part2 extends Frame {
         };
 
         animals.addMouseListener(mouseListener);
-        frame.setVisible(true);
+
+        setTitle("List");
+        setVisible(true);
+    }
+    public static void main(String[] args) {
+        Lab3Part2 run = new Lab3Part2();
     }
 
     public static ImageIcon[] getImages() {

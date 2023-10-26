@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Frame extends JFrame {
 
-    JPanel panel = new JPanel();
+    static JPanel panel = new JPanel();
     static GridBagConstraints c = new GridBagConstraints(); // create constraints variable for gridbag layout
 
     public Frame() {
