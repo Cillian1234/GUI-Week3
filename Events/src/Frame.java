@@ -2,11 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Frame extends JFrame {
-
     static JPanel panel = new JPanel();
     static GridBagConstraints c = new GridBagConstraints(); // create constraints variable for gridbag layout
 
-    public Frame() {
+    {
         setLocation(100, 50);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(500, 500);
@@ -23,5 +22,9 @@ public class Frame extends JFrame {
         c.insets = new Insets(25,25,25,25);
 
         add(panel);
+    }
+    public Frame() {
+
+
     }
 }
