@@ -14,17 +14,17 @@ public class Lab3Part2 extends Frame {
         JList animals = new JList(descriptions);
         c.anchor = GridBagConstraints.NORTH;
         c.gridx = 0;
-        c.gridy = 1;
+        c.gridy = 0;
         panel.add(animals, c);
 
         JLabel imgLabel = new JLabel("An image will appear here", SwingConstants.CENTER);
         c.gridx = 0;
-        c.gridy = 2;
+        c.gridy = 1;
         panel.add(imgLabel, c);
 
         JLabel desc = new JLabel("Description will appear here", SwingConstants.CENTER);
         c.gridx = 0;
-        c.gridy = 3;
+        c.gridy = 2;
         panel.add(desc, c);
 
         MouseListener mouseListener = new MouseAdapter() {
@@ -32,8 +32,8 @@ public class Lab3Part2 extends Frame {
             public void mouseClicked(MouseEvent e) {
                 int selectedItem = animals.getSelectedIndex();
                 imgLabel.setText(null);
-                imgLabel.setIcon(animalsArray[selectedItem]);
 
+                imgLabel.setIcon(animalsArray[selectedItem]);
                 desc.setText(descriptions[selectedItem]);
             }
         };

@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Lab3Part3 extends Frame implements ActionListener {
     static String[] colourNames = {"Red", "Green", "Blue"};
     static Color[] coloursArray = {Color.RED, Color.GREEN, Color.BLUE};
-    static String[] imageNames = {"Mike", "Cat", "Dog", "Dog1", "Dog2"};
+    static String[] imageNames = {"Mike", "Cat", "Dog", "cat1", "cat2"};
     static ImageIcon[] imagesArray = getImages();
     static JComboBox colours = new JComboBox(colourNames);
     static JComboBox images = new JComboBox(imageNames);
@@ -18,8 +18,6 @@ public class Lab3Part3 extends Frame implements ActionListener {
     static JLabel descLabel = new JLabel("Description will appear here", SwingConstants.CENTER);
 
     public Lab3Part3() {
-
-
 
         // Config for colours ComboBox
             c.gridx = 0;

@@ -74,12 +74,12 @@ public class Lab3Part4 extends Frame implements ActionListener {
             bal = bal + 20;
             balance.setText("Your balance is: €" + bal);
         }
-        // If event came from makeText and balance after this text will be more than or equal to 0, reduce balance
+        // If event came from makeText and balance after this action will be more than or equal to 0, reduce balance
         else if (source == makeText && (bal - 0.25) >= 0) {
             bal = bal - 0.25;
             balance.setText("Your balance is: €" + bal);
         }
-        // If event came from makeCall and balance after this call will be more than or equal to 0, reduce balance
+        // If event came from makeCall and balance after this action will be more than or equal to 0, reduce balance
         else if (source == makeCall && (bal - 2) >= 0) {
             bal = bal - 2;
             balance.setText("Your balance is: €" + bal);
